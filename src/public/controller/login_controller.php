@@ -1,4 +1,8 @@
 <?php
+session_start();
+if(!isset($_SESSION['user'])) {
+    $_SESSION['user'] = -1;
+}
 require_once('../../library/php-activerecord/ActiveRecord.php');
 ActiveRecord\Config::initialize(function ($cfg) {
     $cfg->set_model_directory('../model');
@@ -10,7 +14,7 @@ if (isset($_POST)) {
 
     $row = User::find_by_sql("SELECT * FROM `users` WHERE `email` = '$email' AND `password` = '$pass'");
     if ($row[0]->email == $email && $row[0]->password == $pass) {
-        setcookie('user', $row[0]->id, time() + (86400 * 30));
+        $_SESSION['user'] = $row[0]->id;
         header('location: ../view/home.php');
     } else {
         header('location:../view/login.php?msg=Error');

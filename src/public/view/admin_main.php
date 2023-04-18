@@ -16,35 +16,17 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-    <title>Write Blog</title>
+    <title>Admin</title>
 </head>
 
 <body>
     <?php
-    session_start();
-    include_once('./header.php');
+    include_once('../controller/home_controller.php');
+    include_once('./admin_header.php');
     ?>
-    <h1 class='text-center'>Write New blog</h1>
-    <form class="m-5" action="../controller/write_blog_controller.php" method="POST">
-        <div class="form-group">
-            <label for="exampleFormControlInput1">Title</label>
-            <input type='text' class="form-control" id="exampleFormControlInput1" placeholder="Enter title"
-                name='title'>
-        </div>
-        <div class="form-group">
-            <label for='image_link'>Insert image link</label>
-            <input type="text" name='image_link' id='image_link'>
-        </div>
 
-        <div class="form-group">
-            <label for="exampleFormControlTextarea1">Write Blog</label>
-            <textarea name = 'description' class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-
-        </div>
-        <button type="submit" class="btn col-2 btn-primary btn-lg btn-block">Submit</button>
-    </form>
     <?php
-    include_once('./footer.php');
+    include('./footer.php');
     ?>
 </body>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />

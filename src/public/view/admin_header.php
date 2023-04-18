@@ -28,18 +28,15 @@
             <div class="dropdown">
                 <?php
                 // login button
-                if (isset($_SESSION['user']) && $_SESSION['user'] != -1) {
+                if (isset($_SESSION['admin']) && $_SESSION['admin'] != -1) {
                     echo "<div class = 'row'>";
-                    echo "<a href = './my_blogs.php' type=\"button\" class=\"btn m-3 btn-primary\">My Blogs</a>";
+                    echo "<a href = './my_blogs.php' type=\"button\" class=\"btn m-3 btn-primary\">All Blogs</a>";
                     echo "<a href ='../controller/logout_controller.php'
                             type=\"button\" class=\"btn m-3 btn-danger pt-2\">
                             <i class=\"fa-solid fa-user\" style=\"color: #f5f5f5;\"></i>Log Out</a>";
-                    echo "<a href = './write_blog.php' class = 'm-3'>
-                            <i class=\"fa-solid fa-pencil m-3\" style=\"color: #285395;\"></i></a>";
                     echo "</div>";
                 } else {
-                    echo "<a href = './login.php' type=\"button\" class=\"btn btn-primary m-2\">Log In</a>";
-                    echo "<a href = './signup.php' type=\"button\" class=\"btn btn-success m-2\">Sign Up</a>";
+                    echo "<a href = './login.php' type=\"button\" class=\"btn btn-primary m-2\">Admin LogIn</a>";
                 }
                 ?>
             </div>
