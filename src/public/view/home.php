@@ -48,7 +48,7 @@
                                 <h5 class=\"card-title\">$blogObject->title</h5>
                                 <a href='./single_blog_page.php?id=$blogObject->id' class=\"btn btn-primary\" id = $blogObject->id>Read</a>";
                                 if(isset($_SESSION['user']) && $_SESSION['user'] != -1) {
-                                    echo "<a class=\"btn\"><i class=\"fa-solid fa-heart\" style=\"color: #d22d2d;\"></i></i></a>";
+                                    echo "<a href = '../controller/like_controller.php'class=\"btn\"><i class=\"fa-solid fa-heart\" style=\"color: #d22d2d;\"></i></i></a>";
                                 }
                             echo "</div>
                         </div>

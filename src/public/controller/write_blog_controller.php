@@ -10,6 +10,9 @@ if (!isset($_COOKIE['user'])) {
 $title = $_POST['title'];
 $image = $_POST['image_link'];
 $description = $_POST['description'];
+echo "<pre>";
+print_r($_COOKIE);
+echo $_COOKIE['user'];
 $stmt = array('title' => $title, 'image' => $image, 'description' => $description, 'user_id' => $_COOKIE['user']);
 AllBlog::create($stmt);
 header('location:../view/home.php');

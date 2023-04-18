@@ -16,35 +16,40 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-    <title>Blog</title>
+    <title>Write Blog</title>
 </head>
 
 <body>
     <?php
-    require_once('../controller/home_controller.php');
+    session_start();
     include_once('./header.php');
-    $id = $_SESSION['user'];
-    foreach ($_SESSION['blogs'] as $key => $blogObject) {
-        if ($blogObject->user_id == $id) {
-            echo "<div class=\"col-10 m-5 \">
-            <a><i class=\"fa-light fa-trash\"></i></a>
-        <div class=\"col-md-12 how-img\" >
-        <img src=\"$blogObject->image\" class=\"img-fluid \"alt=\"\" style='height:500px;display:block;margin-left:auto;margin-right:auto'/>
-        </div>
-        <div>
-        <a href = '../controller/my_blogs_controller.php?id=" . $blogObject->id . "/edit'>edit</a>
-        <a href = '../controller/my_blogs_controller.php?id=" . $blogObject->id . "/delete'>delete</a>
-        </div>
-        <div class=\"col-md-12 text-center mt-5\">
-        <h1 style='text-align:center;'>$blogObject->title</h1>
-        <p class=\"subheading\">$blogObject->description</p>
-        </div>
-        </div><hr>";
-        }
+    if(isset($_SESSION['editBlog'])) {
+        $arr = json_decode($_SESSION['editBlog']);
     }
+    echo "<pre>";
+    print_r($arr);
+    ?>
+    <h1 class='text-center'>Update blog</h1>
+    <form class="m-5" action="../controller/update_blog_controller.php" method="POST">
+        <div class="form-group">
+            <label for="exampleFormControlInput1" >Title</label>
+            <input type='text' class="form-control" id="exampleFormControlInput1" name = 'title' value = '<?php echo $arr[1] ?>'
+                name='title'>
+        </div>
+        <div class="form-group">
+            <label for='image_link'>Insert image link</label>
+            <input type="text" name='image_link' id='image_link' value = '<?php echo $arr[3] ?>'>
+        </div>
+
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Write Blog</label>
+            <textarea name = 'description' class="form-control" id="exampleFormControlTextarea1" name = 'description' rows="3"><?php echo $arr[2] ?></textarea>
+        </div>
+        <button type="submit" class="btn col-2 btn-primary btn-lg btn-block">Update</button>
+    </form>
+    <?php
     include_once('./footer.php');
     ?>
 </body>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
-
 </html>

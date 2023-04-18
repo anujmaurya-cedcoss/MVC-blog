@@ -16,6 +16,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
     <title>Admin</title>
 </head>
 
@@ -23,12 +24,21 @@
     <?php
     include_once('../controller/home_controller.php');
     include_once('./admin_header.php');
-    ?>
-
-    <?php
+    foreach ($_SESSION['blogs'] as $key => $blogObject) {
+        echo "<div class=\"col-10 m-5 \">
+        <i class=\"fa-solid fa-money-check-pen\" style=\"color: #f00000; height:20px; width:20px;\"></i>
+        <div class=\"col-md-12 how-img\" >
+        <img src=\"$blogObject->image\" class=\"img-fluid \"alt=\"\" style='height:500px;display:block;margin-left:auto;margin-right:auto'/>
+        </div>
+        <a href = '../controller/admin_main_controller.php?id=".$blogObject->id."/delete'>delete</a>
+        <div class=\"col-md-12 text-center mt-5\">
+        <h1 style='text-align:center;'>$blogObject->title</h1>
+        <p class=\"subheading\">$blogObject->description</p>
+        </div>
+        </div><hr>";
+    }
     include('./footer.php');
     ?>
 </body>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
 
 </html>

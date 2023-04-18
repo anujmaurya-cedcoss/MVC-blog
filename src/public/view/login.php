@@ -44,6 +44,8 @@
                         <!-- Submit button -->
                         <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
                         <a href="./signup.php" class = "text-center">New Here? SignUp instead</a>
+                        <div><a href="./admin_login.php">Admin Login</a></div>
+                        
                     </form>
                 </div>
             </div>

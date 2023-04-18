@@ -154,23 +154,23 @@ class Table
 		if (array_key_exists('select',$options))
 			$sql->select($options['select']);
 
-		// if (array_key_exists('conditions',$options))
-		// {
-		// 	if (!is_hash($options['conditions']))
-		// 	{
-		// 		if (is_string($options['conditions']))
-		// 			$options['conditions'] = array($options['conditions']);
+		if (array_key_exists('conditions',$options))
+		{
+			if (!is_hash($options['conditions']))
+			{
+				if (is_string($options['conditions']))
+					$options['conditions'] = array($options['conditions']);
 
-		// 		call_user_func_array(array($sql,'where'),$options['conditions']);
-		// 	}
-		// 	else
-		// 	{
-		// 		if (!empty($options['mapped_names']))
-		// 			$options['conditions'] = $this->map_names($options['conditions'],$options['mapped_names']);
+				call_user_func_array(array($sql,'where'),$options['conditions']);
+			}
+			else
+			{
+				if (!empty($options['mapped_names']))
+					$options['conditions'] = $this->map_names($options['conditions'],$options['mapped_names']);
 
-		// 		$sql->where($options['conditions']);
-		// 	}
-		// }
+				$sql->where($options['conditions']);
+			}
+		}
 
 		if (array_key_exists('order',$options))
 			$sql->order($options['order']);

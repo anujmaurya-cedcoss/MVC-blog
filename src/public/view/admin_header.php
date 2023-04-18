@@ -30,7 +30,7 @@
                 // login button
                 if (isset($_SESSION['admin']) && $_SESSION['admin'] != -1) {
                     echo "<div class = 'row'>";
-                    echo "<a href = './my_blogs.php' type=\"button\" class=\"btn m-3 btn-primary\">All Blogs</a>";
+                    echo "<a href = '../controller/admin_top_blogs_controller.php' type=\"button\" class=\"btn m-3 btn-primary\">Top 5 Blogs</a>";
                     echo "<a href ='../controller/logout_controller.php'
                             type=\"button\" class=\"btn m-3 btn-danger pt-2\">
                             <i class=\"fa-solid fa-user\" style=\"color: #f5f5f5;\"></i>Log Out</a>";
