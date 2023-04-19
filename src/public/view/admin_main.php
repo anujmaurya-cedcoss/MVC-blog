@@ -30,7 +30,8 @@
         <div class=\"col-md-12 how-img\" >
         <img src=\"$blogObject->image\" class=\"img-fluid \"alt=\"\" style='height:500px;display:block;margin-left:auto;margin-right:auto'/>
         </div>
-        <a href = '../controller/admin_main_controller.php?id=".$blogObject->id."/delete'>delete</a>
+        <button class = 'btn'><a href = '../controller/admin_main_controller.php?id=".$blogObject->id."/delete'>delete</a></button>
+
         <div class=\"col-md-12 text-center mt-5\">
         <h1 style='text-align:center;'>$blogObject->title</h1>
         <p class=\"subheading\">$blogObject->description</p>

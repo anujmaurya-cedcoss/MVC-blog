@@ -32,8 +32,8 @@
         <img src=\"$blogObject->image\" class=\"img-fluid \"alt=\"\" style='height:500px;display:block;margin-left:auto;margin-right:auto'/>
         </div>
         <div>
-        <a href = '../controller/my_blogs_controller.php?id=" . $blogObject->id . "/edit'>edit</a>
-        <a href = '../controller/my_blogs_controller.php?id=" . $blogObject->id . "/delete'>delete</a>
+        <button class = 'btn btn'><a href = '../controller/my_blogs_controller.php?id=" . $blogObject->id . "/edit'>edit</a></button>
+        <button class = 'btn btn-danger'><a href = '../controller/my_blogs_controller.php?id=" . $blogObject->id . "/delete'>delete</a></button>
         </div>
         <div class=\"col-md-12 text-center mt-5\">
         <h1 style='text-align:center;'>$blogObject->title</h1>

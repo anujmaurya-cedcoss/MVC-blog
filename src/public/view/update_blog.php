@@ -26,8 +26,6 @@
     if(isset($_SESSION['editBlog'])) {
         $arr = json_decode($_SESSION['editBlog']);
     }
-    echo "<pre>";
-    print_r($arr);
     ?>
     <h1 class='text-center'>Update blog</h1>
     <form class="m-5" action="../controller/update_blog_controller.php" method="POST">
